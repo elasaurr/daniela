@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Daniela Dacuya | Creative Graphic Designer</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap');
+
+      :root {
+        --primary-color: #FF85B3;
+        --secondary-color: #FFD166;
+        --dark-color: #333333;
+        --light-color: #f8f9fa;
+        --accent-color: #06D6A0;
+        --text-color: #495057;
+        --max-width: 1200px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--text-color);
+        background-color: var(--light-color);
+        line-height: 1.6;
+      }
+
+      h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+     
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .header-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      .logo span {
+        color: var(--dark-color);
+      }
+
+      .nav-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--primary-color);
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-menu a {
+        font-weight: 600;
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      .nav-menu a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+
+      .nav-menu a:hover::after {
+        width: 100%;
+      }
+
+      section {
+        padding: 8rem 2rem;
+        min-height: 100vh;
+      }
+
+      .section-container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: var(--dark-color);
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      }
+
+
+      #home {
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), 
+                    url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500') no-repeat center/cover;
+      }
+
+      .hero-content {
+        max-width: 600px;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero-title span {
+        color: var(--primary-color);
+      }
+
+      .hero-description {
+        margin-bottom: 2.5rem;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-right: 1rem;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #e67399;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255, 133, 179, 0.3);
+      }
+
+      .btn-outline {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      #about {
+        background-color: white;
+      }
+
+      .about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-image {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .about-content h2 {
+        margin-bottom: 1.5rem;
+      }
+
+      .about-content p {
+        margin-bottom: 1.5rem;
+      }
+
+
+      #skills {
+        background-color: var(--light-color);
+      }
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .skills-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .skills-list {
+        margin-top: 2rem;
+      }
+
+      .skill-category {
+        margin-bottom: 2rem;
+      }
+
+      .skill-category h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .skill-item {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .skill-item::before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+      }
+
+      #portfolio {
+        background-color: white;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .portfolio-item {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      }
+
+      .portfolio-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        color: white;
+        padding: 2rem 1.5rem 1.5rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      #contact {
+        background-color: var(--light-color);
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .contact-info {
+        margin-top: 2rem;
+      }
+
+      .contact-info p {
+        margin-bottom: 1.5rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: white;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      .social-link:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+     
+      footer {
+        background-color: var(--dark-color);
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .footer-text {
+        font-size: 0.9rem;
+      }
+
+     
+      @media (max-width: 992px) {
+        .about-container,
+        .skills-container,
+        .contact-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .about-image,
+        .skills-image,
+        .contact-image {
+          order: -1;
+        }
+
+        .hero-title {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-toggle {
+          display: block;
+        }
+
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background-color: white;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 3rem;
+          transition: left 0.3s ease;
+        }
+
+        .nav-menu.active {
+          left: 0;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        section {
+          padding: 6rem 1.5rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .btn {
+          display: block;
+          width: 100%;
+          margin-bottom: 1rem;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="#" class="logo">Daniela<span>.</span></a>
+        <div class="nav-toggle" id="navToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+   
+    <section id="home">
+      <div class="section-container">
+        <div class="hero-content">
+          <p class="hero-subtitle">Hello, I'm</p>
+          <h1 class="hero-title">Daniela Dacuya <span>Graphic Designer</span></h1>
+          <p class="hero-description">
+            Creating simple yet effective visuals that communicate ideas and inspire audiences.
+          </p>
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ 
+    <section id="about">
+      <div class="section-container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container">
+          <div class="about-content">
+            <p>
+              Welcome to my portfolio! I'm Daniela, a 20-year-old graphic designer 
+              from Trece Martires City, Cavite, passionate about creating simple yet effective visuals.
+            </p>
+            <p>
+              My journey in design began with a fascination for how visuals can communicate 
+              complex ideas simply and beautifully.
+            </p>
+        
+          </div>
+          <div class="about-image">
+            <img src="https://imgur.com/13VfDf1.jpg" alt="Daniela Dacuya">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+          <div class="skills-content">
+            <div class="skills-list">
+              <div class="skill-category">
+                <h3>Web Development</h3>
+                <div class="skill-item">Proficient in HTML, CSS, and JavaScript</div>
+                <div class="skill-item">Experienced with front-end frameworks</div>
+              </div>
+              
+              <div class="skill-category">
+                <h3>Design & User Experience</h3>
+                <div class="skill-item">Crafting responsive websites that adapt to various devices</div>
+                <div class="skill-item">Creating intuitive user interfaces</div>
+              </div>
+              
+              <div class="skill-category">
+                <h3>Professional Skills</h3>
+                <div class="skill-item">Effective time management for timely project delivery</div>
+                <div class="skill-item">Strong collaboration and communication</div>
+              </div>
+            </div>
+            <p class="skills-note" style="margin-top: 2rem;">
+              Feel free to explore my <a href="#portfolio" style="color: var(--primary-color); font-weight: 600;">portfolio</a> 
+              to see these skills in action. Each project represents my commitment to blending 
+              creativity with technical expertise.
+            </p>
+          </div>
+          <div class="about-image">
+            <img src="https://imgur.com/nkRWqn0.jpg" alt="Daniela's Skills">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="section-container">
+        <h2 class="section-title">My Portfolio</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <img src="https://i.imgur.com/doEvCm3.png" alt="Project 1" class="portfolio-image">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Table Design</h3>
+              <p>HTML/CSS layout project</p>
+            </div>
+          </div>
+          
+          <div class="portfolio-item">
+            <img src="https://i.imgur.com/dtjPoDe.png" alt="Project 2" class="portfolio-image">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Interactive Forms</h3>
+              <p>User input form design</p>
+            </div>
+          </div>
+          
+          <div class="portfolio-item">
+            <img src="https://i.imgur.com/YRYHsD7.png" alt="Project 3" class="portfolio-image">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Blog with Frames</h3>
+              <p>Frame-based layout design</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+          <div class="contact-content">
+            <div class="contact-info">
+              <p>
+                I'm currently available for freelance projects or full-time positions. 
+                If you have a project you'd like to discuss or just want to say hello, 
+                feel free to reach out!
+              </p>
+              <p>
+                <i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--primary-color);"></i>
+                Trece Martires City, Cavite
+              </p>
+              <div class="social-links">
+                <a href="https://www.facebook.com/daniela.dacuya.33?mibextid=9R9pXO" class="social-link" target="_blank">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/haruchaeyo_/" class="social-link" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <img src="https://imgur.com/5TaUjKG.jpg" alt="Contact Daniela">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-text">
+        &copy; 2025 Daniela Dacuya. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+
+
+      document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+        });
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        });
+      });
+
+     
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+          header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+        } else {
+          header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        }
+      });
+    </script>
+  </body>
+</html>
